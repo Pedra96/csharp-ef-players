@@ -11,7 +11,7 @@ namespace CSharp_Entity_Framework_Players {
 
     [Table("giocatori")]
     [Index(nameof(GiocatoreID), IsUnique = true)]
-    public class Student {
+    public class Player {
 
         [Key]
         [Column("primary_Key")]
@@ -21,10 +21,16 @@ namespace CSharp_Entity_Framework_Players {
         public string Name { get; set; }
         public string Surname { get; set; }
         [Column("punteggio")]
-        public float Punteggio { get; set; }
+        public double Punteggio { get; set; }
         [Column("partite_giocate")]
         public int PartiteGiocate { get; set; }
         [Column("partite_vinte")]
         public int PartiteVinte { get; set; }
+
+        public override string ToString() {
+            string Print = "Nome: " + this.Name + "\n" + "Cognome: " + this.Surname + "\n" + "Punteggio: " + this.Punteggio +
+                "\n" + "Partite Giocate: " + PartiteGiocate + "\n" + "Partite vinte: " + PartiteVinte+"\n";
+            return Print;
+        }
     }
 }
